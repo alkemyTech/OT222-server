@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const mailRouter = require('./routes/mails');
+const mailRouter = require('./routes/mail');
 
 const app = express();
 app.use(cors());
