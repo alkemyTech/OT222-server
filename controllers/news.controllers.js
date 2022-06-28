@@ -7,7 +7,7 @@ const createNew = async (req, res) => {
 
   try {
     if (errors[0].errors.length === 0) {
-      const res = await Model.Entries.create({
+      await Model.Entries.create({
         name,
         content,
         image,
