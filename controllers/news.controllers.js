@@ -44,4 +44,27 @@ const getNewById = async (req, res) => {
   }
 };
 
-module.exports = { createNew, getNewById };
+const updateNew = async (req, res) => {
+  const { id } = req.params;
+  const { name, content, image, categoryId } = req.body;
+
+  try {
+    const news = await Model.Entries.findByPk(id);
+    if (news) {
+      (news.name = name),
+        (news.content = content),
+        (news.image = image),
+        (news.categoryId = categoryId);
+
+      await news.save();
+
+      res.json({ message: "new updates sucessfull" });
+    } else {
+      res.json({ message: "Not Found!" });
+    }
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+module.exports = { createNew, getNewById, updateNew };
