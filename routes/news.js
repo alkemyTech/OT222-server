@@ -1,16 +1,20 @@
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { Entries } = require('../models/index')
+const newValidationSchema = require("../validations/newValidationSchema");
+const { createNew, getNewById } = require("../controllers/news.controllers");
 
-router.get('/', (req, res) => {
-    Entries.findAll({
-        where: { type: 'news' },
-        attributes: ['name', 'image', 'createdAt']
-    })
-        .then(entries => res.send(entries))
-        .catch(err => res.send(err))
-})
+const express = require("express");
+const { Entries } = require("../models/index");
+
+router.get("/", (req, res) => {
+  Entries.findAll({
+    where: { type: "news" },
+    attributes: ["name", "image", "createdAt"],
+  })
+    .then((entries) => res.send(entries))
+    .catch((err) => res.send(err));
+});
+
+router.get("/:id", getNewById);
 
 module.exports = router;
-

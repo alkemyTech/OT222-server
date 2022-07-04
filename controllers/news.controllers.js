@@ -7,7 +7,7 @@ const createNew = async (req, res) => {
 
   try {
     if (errors[0].errors.length === 0) {
-      const res = await Model.Entries.create({
+      await Model.Entries.create({
         name,
         content,
         image,
@@ -16,7 +16,7 @@ const createNew = async (req, res) => {
       });
     }
     res.json({
-        message: 'new created sucessfull'
+      message: "new created sucessfull",
     });
   } catch (error) {
     console.log(error);
@@ -27,4 +27,21 @@ const createNew = async (req, res) => {
   }
 };
 
-module.exports = { createNew };
+const getNewById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const news = await Model.Entries.findByPk(id);
+    if (news === null) {
+      res.json({
+        message: "Not Found!.",
+      });
+    } else {
+      res.json(news);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { createNew, getNewById };
