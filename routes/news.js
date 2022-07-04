@@ -7,8 +7,6 @@ const {
   updateNew,
 } = require("../controllers/news.controllers");
 
-const express = require("express");
-const { Entries } = require("../models/index");
 
 router.get("/", (req, res) => {
   Entries.findAll({
