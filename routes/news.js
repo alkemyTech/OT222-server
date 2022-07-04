@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const newValidationSchema = require("../validations/newValidationSchema");
-const { createNew, getNewById } = require("../controllers/news.controllers");
+const {
+  createNew,
+  getNewById,
+  updateNew,
+} = require("../controllers/news.controllers");
 
 const express = require("express");
 const { Entries } = require("../models/index");
@@ -17,4 +21,5 @@ router.get("/", (req, res) => {
 
 router.get("/:id", getNewById);
 
+router.put("/:id", updateNew);
 module.exports = router;
