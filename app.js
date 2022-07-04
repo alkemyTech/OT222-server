@@ -7,12 +7,12 @@ const logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
-
 // Routers
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const authRouter = require('./routes/auth')
+const authRouter = require('./routes/auth');
 const mailRouter = require('./routes/mail');
+
 const organizationsRouter = require("./routes/organizations")
 const news = require('./routes/news')
 
@@ -33,17 +33,16 @@ const organizationsRouter = require("./routes/organizations");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-<<<<<<< HEAD
-=======
 
 //Routes
->>>>>>> 7a2a04e036fb8ff1ba2b3ccc155683b778c8e3d5
+
 app.use(logger("dev"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
 
 //Routes
 app.use("/", indexRouter);
@@ -52,6 +51,7 @@ app.use("/users", usersRouter);
 app.use("/auth", authRouter);
 app.use("/mail", mailRouter);
 app.use("/organizations", organizationsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
