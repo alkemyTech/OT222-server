@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const { Entries } = require('../models/index')
@@ -12,3 +13,4 @@ router.get('/', (req, res) => {
 })
 
 module.exports = router;
+
