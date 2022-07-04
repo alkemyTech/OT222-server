@@ -3,8 +3,18 @@ const router = express.Router();
 const newValidationSchema = require("../validations/newValidationSchema");
 const { createNew, getNewById } = require("../controllers/news.controllers");
 
-router.post("/", [newValidationSchema], createNew);
+const express = require("express");
+const { Entries } = require("../models/index");
 
-router.get("/:id", getNewById)
+router.get("/", (req, res) => {
+  Entries.findAll({
+    where: { type: "news" },
+    attributes: ["name", "image", "createdAt"],
+  })
+    .then((entries) => res.send(entries))
+    .catch((err) => res.send(err));
+});
+
+router.get("/:id", getNewById);
 
 module.exports = router;
