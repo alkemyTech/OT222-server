@@ -3,14 +3,10 @@ var router = express.Router();
 
 
 const usersControllers = require('../controllers/users');
-
-const { getUser } = require("../controllers/user.controllers");
+const AdminAuth = require('./middlewares/AdminAuth');
 
 /* GET users listing. */
-router.get("/", getUser);
 
-
-
-router.use('/', usersControllers);
+router.use('/', AdminAuth, usersControllers);
 
 module.exports = router;
