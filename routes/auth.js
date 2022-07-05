@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const { Users } = require('../models/index');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const { createUser, authMe } = require('../controllers/auth.controllers');
+const { createUser, authMe, logIn } = require('../controllers/auth.controllers');
 const userValidationSchema = require('../validations/userValidationSchema');
 
 // auth me
@@ -16,20 +15,7 @@ router.post(
   '/login',
   body('email').isEmail(),
   body('password').isLength({ min: 6 }),
-  (req, res) => {
-    if (!validationResult(req).isEmpty())
-      return res.status(401).json({ ok: false });
-
-    const { email, password } = req.body;
-    Users.findOne({
-      where: { email },
-    }).then(user => {
-      if (!user) return res.status(401).json({ ok: false });
-      if (!bcrypt.compareSync(password, user.password))
-        return res.status(401).json({ ok: false });
-      return res.json({ ok: true, user });
-    });
-  }
+  logIn
 );
 
 module.exports = router;
