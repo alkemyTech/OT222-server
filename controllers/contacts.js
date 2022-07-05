@@ -4,10 +4,11 @@ var router = express.Router();
 const AdminAuth = require('../routes/middlewares/adminAuth');
 
 router.get('/',AdminAuth, async (req, res) => {
- /*  Contacts.findAll()
-    .then(users => res.send(users))
+ /* await  Contacts.findAll()
+    .then(contacts => res.send(contacts))
     .catch(err => res.status(400).send(err)); */
 });
+
 
 
 
