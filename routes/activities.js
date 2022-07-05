@@ -6,6 +6,6 @@ const AdminAuth = require('./middlewares/AdminAuth');
 
 /* POST activities listing. */
 
-router.use('/', ActivitiesController);
+router.use('/',AdminAuth, ActivitiesController);
 
 module.exports = router;
