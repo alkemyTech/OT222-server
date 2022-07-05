@@ -4,7 +4,6 @@ const { User } = require("../../models/index");
 
 
 const AdminAuth = (req, res, next) => {
-    console.log(req.headers);
     const token = req.headers.authorization;
     if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
 
