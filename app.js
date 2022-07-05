@@ -15,6 +15,7 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const mailRouter = require('./routes/mail');
 const organizationsRouter = require('./routes/organizations');
+const newsRouter = require('./routes/news');
 const testimonialsRouter = require('./routes/testimonials');
 
 app.use(cors());
@@ -30,14 +31,6 @@ app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-//Routes
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const authRouter = require('./routes/auth');
-const mailRouter = require('./routes/mail');
-const organizationsRouter = require('./routes/organizations');
-const newsRouter = require('./routes/news');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
