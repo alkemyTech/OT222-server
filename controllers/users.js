@@ -1,16 +1,20 @@
 var express = require('express');
 var router = express.Router();
-const { Users } = require('../models');
+const { User } = require('../models');
 const ValidateUserId = require('../routes/middlewares/validateUserId');
 
 router.get('/', async (req, res) => {
-  const users = await Users.findAll();
-  res.json(users);
+  User.findAll({
+    attributes: { exclude: ['password'] }
+  })
+    .then(users => res.send(users))
+    .catch(err => res.status(400).send(err));
 });
 
 router.delete('/:userId', ValidateUserId, async (req, res) => {
-  await Users.destroy({ where: { id: req.params.userId } });
-  res.json({ success: 'El usuario se ha eliminado' });
+  User.destroy({ where: { id: req.params.userId } })
+    .then(res => res.send({ success: 'El usuario se ha eliminado' }))
+    .catch(err => res.status(400).send(err));
 });
 
 module.exports = router;
