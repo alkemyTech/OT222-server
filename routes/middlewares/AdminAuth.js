@@ -10,8 +10,7 @@ const AdminAuth = (req, res, next) => {
 
     jwt.verify(token.replace("Bearer ", ""), config.secret, (err, decoded) => {
         if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
-        console.log(decoded.id)
-        User.findByPk(decoded.id, {
+        User.findByPk(decoded.userId, {
             attributes: ["roleId"]
         })
             .then(user => {
