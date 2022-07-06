@@ -17,6 +17,7 @@ const mailRouter = require('./routes/mail');
 const organizationsRouter = require('./routes/organizations');
 const newsRouter = require('./routes/news');
 const testimonialsRouter = require('./routes/testimonials');
+const contactsRouter = require('./routes/contacts');
 
 app.use(cors());
 
@@ -33,12 +34,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/news', newsRouter);
+app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/mail', mailRouter);
 app.use('/organizations', organizationsRouter);
 app.use('/testimonials', testimonialsRouter);
+app.use('/contacts', contactsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
