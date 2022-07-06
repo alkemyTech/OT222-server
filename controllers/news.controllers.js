@@ -67,4 +67,22 @@ const updateNew = async (req, res) => {
   }
 };
 
-module.exports = { createNew, getNewById, updateNew };
+const getAll = (req, res) => {
+  Model.Entries.findAll({
+    where: { type: "news" },
+    attributes: ["id", "name", "image", "createdAt"],
+  })
+    .then((entries) => res.send(entries))
+    .catch((err) => res.send(err));
+}
+
+const deleteNew = (req, res) => {
+  const { id } = req.params;
+  Model.Entries.destroy({
+    where: { id },
+  })
+    .then((news) => res.send({ message: "new deleted sucessfull" }))
+    .catch(err => res.send(err))
+}
+
+module.exports = { createNew, getNewById, updateNew, deleteNew, getAll };
