@@ -17,6 +17,7 @@ const mailRouter = require('./routes/mail');
 const organizationsRouter = require('./routes/organizations');
 const newsRouter = require('./routes/news');
 const testimonialsRouter = require('./routes/testimonials');
+const activitiesRouter = require('./routes/activities');
 const contactsRouter = require('./routes/contacts');
 
 app.use(cors());
@@ -40,6 +41,7 @@ app.use('/auth', authRouter);
 app.use('/mail', mailRouter);
 app.use('/organizations', organizationsRouter);
 app.use('/testimonials', testimonialsRouter);
+app.use('/activities', activitiesRouter);
 app.use('/contacts', contactsRouter);
 
 // catch 404 and forward to error handler

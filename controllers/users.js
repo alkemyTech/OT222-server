@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { User } = require('../models');
-const ValidateUserId = require('../routes/middlewares/validateUserId');
+
 
 router.get('/', async (req, res) => {
   User.findAll({
