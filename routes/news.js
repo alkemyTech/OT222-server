@@ -15,6 +15,8 @@ router.get("/", getAll);
 
 router.get("/:id", getNewById);
 
+router.post("/", createNew);
+
 router.put("/:id", updateNew);
 
 router.delete("/:id", AdminAuth, deleteNew);
