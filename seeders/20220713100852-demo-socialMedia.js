@@ -3,23 +3,23 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "organizations",
+      "socialMedia",
       [
         {
-          name: "facebook",
-          urls: "https://www.facebook.com/",
+          name: "Facebook",
+          url: "https://www.facebook.com/",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "linkedin",
-          urls: "https://www.linkedin.com/",
+          name: "LinkedIn",
+          url: "https://www.linkedin.com/",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "instagram",
-          urls: "https://www.instagram.com/",
+          name: "Instagram",
+          url: "https://www.instagram.com/",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -29,11 +29,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete("People", null, {})
   },
 }

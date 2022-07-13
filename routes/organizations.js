@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+var express = require("express")
+var router = express.Router()
 
-const {getPublic}  =require("../controllers/organizations");
+const { getPublic } = require("../controllers/organizations")
 
-router.get("/1/public",getPublic);
-
+router.get("/public", getPublic)
 
 module.exports = router

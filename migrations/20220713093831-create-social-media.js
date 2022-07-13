@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('contacts', {
+    await queryInterface.createTable('socialMedia', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,17 +11,8 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      phone: {
+      url: {
         type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      message: {
-        type: Sequelize.TEXT
-      },
-      deleteAt: {
-        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +25,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('contacts');
+    await queryInterface.dropTable('socialMedia');
   }
 };
