@@ -59,12 +59,13 @@ const authMe = async (req, res) => {
     }
 
     const decoded = validateToken(token);
-    const { firstName, lastName, email, image } = await User.findByPk(decoded.userId);
+    const { firstName, lastName, email, image, roleId } = await User.findByPk(decoded.userId);
     res.json({
       firstName,
       lastName,
       email,
-      image
+      image, 
+      roleId
     });
   } catch (e) {
     console.log(e);
