@@ -2,11 +2,11 @@ const { check } = require('express-validator');
 const { validation } = require('../../util/helper');
 
 const validateTestimonialFields = [
-  check('name', 'The name cannot be empty, and must be letters')
+  check('name', 'El nombre no puede estar vacío, y debe ser letras.')
     .not()
     .isEmpty()
     .isString(),
-  check('content', 'The content cannot be empty, and must be letters')
+  check('content', 'El contenido no puede estar vacío, y debe ser letras.')
     .not()
     .isEmpty()
     .isString(),
