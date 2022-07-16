@@ -14,6 +14,15 @@ module.exports = {
       url: {
         type: Sequelize.STRING
       },
+      organizationId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Organizations',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
