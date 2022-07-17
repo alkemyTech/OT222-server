@@ -1,4 +1,4 @@
-const { Category } = require("../models")
+const { Categories } = require("../models")
 
 const createCategory = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ const createCategory = async (req, res) => {
       return res.status(400).json({
         message: "Name and description must be string",
       })
-    const category = await Category.create({
+    const category = await Categories.create({
       name: name,
       description: description,
     })
@@ -27,7 +27,7 @@ const createCategory = async (req, res) => {
 
 const getCategories = async (req, res) => {
   try {
-    const categories = await Category.findAll()
+    const categories = await Categories.findAll()
     res.status(200).json({
       categories,
     })
@@ -38,7 +38,7 @@ const getCategories = async (req, res) => {
 
 const getCategoriesById = async (req, res) => {
   try {
-    const category = await Category.findOne({ where: { id: req.params.id } })
+    const category = await Categories.findOne({ where: { id: req.params.id } })
     if (!category)
       return res.status(404).json({ message: "Category not found" })
     res.status(200).json({
@@ -53,7 +53,7 @@ const editCategoryById = async (req, res) => {
   try {
     const { id } = req.params
     const { name, description } = req.body
-    const category = await Category.findOne({ where: { id: id } })
+    const category = await Categories.findOne({ where: { id: id } })
     if (!category)
       return res.status(404).json({ message: "Category not found" })
     const categoryUpdated = await category.update(
