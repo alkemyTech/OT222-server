@@ -1,27 +1,142 @@
-'use strict';
+"use strict"
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Users', [{
-      firstName: 'Usuario',
-      lastName: 'Demo',
-      email: 'test@test.com',
-      // Important: Password not encrypted yet! 
-      password: '$2a$10$cwwjN5d5TRC/MAEkwXbJHe7RxVgD1Kvi4cSL8pRqFNZAJlyVBwPx6',
-      roleId: 1,
-      image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
-      createdAt: new Date,
-      updatedAt: new Date
-    }], {});
+    await queryInterface.bulkInsert(
+      "Users",
+      [
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 1,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test1@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 1,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test2@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 1,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test3@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 1,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test4@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 1,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test5@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 0,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test6@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 0,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test7@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 0,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test8@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 0,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          firstName: "Usuario",
+          lastName: "Demo",
+          email: "test9@test.com",
+          password:
+            "$2b$10$2C1wtfesposW9qrr2tLWqenQdd.xiva02jBP6pTQPTgG85vU4mfr2",
+          roleId: 0,
+          image:
+            "https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    )
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Users', null, {});
+    await queryInterface.bulkDelete("Users", null, {})
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
-};
+  },
+}
