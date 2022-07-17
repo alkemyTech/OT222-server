@@ -3,16 +3,16 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Organizations', [{
-      name: "Somos Mas",
-      image: "",
-      phone: "+54 9 11678987",
-      adress: "adress de la empresa",
-      welcomeText: " welcome text de la empresa que aparece en el home",
+      name:"Somos Mas",
+      image:"https://www.somosmas.com/wp-content/uploads/2019/01/logo-somos-mas.png",
+      phone:"+57 (1) 888 888 888",
+      adress:"Calle Principal #1",
+      welcomeText:"Bienvenido a Somos Mas",
       createdAt: new Date,
       updatedAt: new Date
-
     }], {});
   },
+
   async down (queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
