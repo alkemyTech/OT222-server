@@ -28,7 +28,9 @@ const createCategory = async (req, res) => {
 const getCategories = async (req, res) => {
   try {
     const categories = await Categories.findAll()
-    const categoriesName = categories.map(({ name }) => name)
+    const categoriesName = categories.map(({ id, name }) => {
+      return { _id: id, name }
+    })
     res.status(200).json({
       categoriesName,
     })
