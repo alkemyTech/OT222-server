@@ -1,42 +1,83 @@
-var express = require('express');
-var router = express.Router();
 const { Testimonials } = require('../models');
-const validateTestimonialFields = require('../routes/middlewares/validateTestimonialFields');
-const validateTestimonialId = require('../routes/middlewares/ValidateTestimonialId');
 
-router.post('/', validateTestimonialFields, async (req, res) => {
-  const data = await Testimonials.create(req.body);
-  res.json(data);
-});
-
-router.put(
-  '/:id',
-  validateTestimonialFields,
-  validateTestimonialId,
-  async (req, res) => {
-    const idParam = req.params.id;
-    try {
-      await Testimonials.update(
-        {
-          name: req.body.name,
-          content: req.body.content,
-        },
-        { where: { id: idParam } }
-      );
-      const testimonial = await Testimonials.findOne({
-        where: { id: idParam },
-      });
-      res.status(200).json(testimonial);
-    } catch (error) {
-      res.status(400).json({ error: error.message });
-    }
+const getTestimonials = async (req, res) => {
+  try {
+    const testimonials = await Testimonials.findAll();
+    res.status(200).json({
+      testimonials,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-);
+};
 
-router.delete('/:id', async (req, res) => {
-  Testimonials.destroy({ where: { id: req.params.id } })
-    .then(() => res.send({ success: 'El testimonio se ha eliminado' }))
-    .catch(err => res.status(400).send(err));
-});
+const getTestimonialsById = async (req, res) => {
+  const { id } = req.params;
 
-module.exports = router;
+  try {
+    const testimonials = await Testimonials.findByPk(id);
+    if (testimonials === null) {
+      res.json({
+        message: 'Testimony Not Found!.',
+      });
+    } else {
+      res.json(testimonials);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const createTestimonials = async (req, res) => {
+  const { name, content, image } = req.body;
+  try {
+    const testimonials = await Testimonials.create({
+      name,
+      content,
+      image,
+    });
+
+    res.json({
+      testimonials,
+      message: 'Testimony created sucessfull',
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const editTestimonialsById = async (req, res) => {
+  const idParam = req.params.id;
+  try {
+    await Testimonials.update(
+      {
+        name: req.body.name,
+        content: req.body.content,
+      },
+      { where: { id: idParam } }
+    );
+    const testimonial = await Testimonials.findOne({
+      where: { id: idParam },
+    });
+    res.status(200).json(testimonial);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const deleteTestimonialsById = (req, res) => {
+  const { id } = req.params;
+  Testimonials.destroy({
+    where: { id },
+  })
+    .then(testimonial => res.send({ message: 'Testimony deleted sucessfull' }))
+    .catch(err => res.send(err));
+};
+
+module.exports = {
+  getTestimonials,
+  editTestimonialsById,
+  createTestimonials,
+  getTestimonialsById,
+  deleteTestimonialsById,
+};
