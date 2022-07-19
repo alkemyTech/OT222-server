@@ -1,18 +1,18 @@
 const { Testimonials } = require('../../models');
 
 const ValidateTestimonialId = async (req, res, next) => {
-    idTestimony = req.params.id;
+  idTestimony = req.params.id;
   try {
     const testimonial = await Testimonials.findAll({
       where: { id: idTestimony },
     });
-    if (testimonial) {
-      next();
-    } else {
+
+    if (testimonial.length === 0) {
       return res.send('El testimonio no existe!!');
+    } else {
+      next();
     }
-  }
-  catch (e) {
+  } catch (e) {
     return res.send(e);
   }
 };

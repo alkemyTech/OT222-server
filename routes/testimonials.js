@@ -1,8 +1,34 @@
-const router = require('express').Router();
+const express = require('express');
+const testimonialsRouter = express.Router();
+const validateTestimonialFields = require('./middlewares/validateTestimonialFields');
+const validateTestimonialId = require('./middlewares/ValidateTestimonialId');
+const AdminAuth = require('./middlewares/AdminAuth');
 
-const testimonialsControllers = require('../controllers/testimonials');
+const TestimonialsController = require('../controllers/testimonials');
 
-router.use('/', testimonialsControllers);
-router.use('/:id', testimonialsControllers);
+testimonialsRouter.get('/', TestimonialsController.getTestimonials);
+testimonialsRouter.get(
+  '/:id',
+  validateTestimonialId,
+  TestimonialsController.getTestimonialsById
+);
+testimonialsRouter.post(
+  '/',
+  validateTestimonialFields,
+  AdminAuth,
+  TestimonialsController.createTestimonials
+);
+testimonialsRouter.put(
+  '/:id',
+  validateTestimonialId,
+  AdminAuth,
+  TestimonialsController.editTestimonialsById
+);
+testimonialsRouter.delete(
+  '/:id',
+  validateTestimonialId,
+  AdminAuth,
+  TestimonialsController.deleteTestimonialsById
+);
 
-module.exports = router;
+module.exports = testimonialsRouter;
