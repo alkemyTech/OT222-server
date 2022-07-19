@@ -1,8 +1,8 @@
-const { Users } = require('../../models');
+const { User } = require('../../models');
 
 const ValidateUserId = async (req, res, next) => {
   try {
-    const user = await Users.findAll({
+    const user = await User.findAll({
       where: { id: Number(req.params.userId) },
     });
     if (user.length > 0) {
@@ -10,8 +10,7 @@ const ValidateUserId = async (req, res, next) => {
     } else {
       return res.send('El usario no existe!!');
     }
-  }
-  catch (e) {
+  } catch (e) {
     return res.send(e);
   }
 };
