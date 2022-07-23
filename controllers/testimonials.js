@@ -53,6 +53,7 @@ const editTestimonialsById = async (req, res) => {
       {
         name: req.body.name,
         content: req.body.content,
+        image: req.body.image,
       },
       { where: { id: idParam } }
     );
