@@ -10,15 +10,17 @@ router.get('/all', (req, res) => {
         .catch(err => res.send(err))
 })
 
-router.get('/single', (req, res) => {
-    getObject(req.body.key)
+router.get('/single/:key', (req, res) => {
+    console.log(req.params)
+    getObject(req.params.key)
         .then(data => res.contentType(data.ContentType).send(data.Body))
         .catch(err => res.send(err))
 })
 
 router.post('/', upload.single('file'), (req, res) => {
     const file = req.file
-    uploadObject(file.buffer, file.originalname, file.mimetype)
+    const { key } = req.body
+    uploadObject(file.buffer, key || file.filename, file.mimetype)
         .then(data => res.send({ msg: 'success', data }))
         .catch(err => res.send(err))
 })
