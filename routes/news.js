@@ -1,24 +1,23 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const newValidationSchema = require("../validations/newValidationSchema");
-const AdminAuth = require("./middlewares/AdminAuth");
+const newValidationSchema = require('../validations/newValidationSchema');
+const AdminAuth = require('./middlewares/AdminAuth');
 const {
   createNew,
   getNewById,
   updateNew,
   getAll,
-  deleteNew
-} = require("../controllers/news.controllers");
+  deleteNew,
+} = require('../controllers/news.controllers');
 
+router.get('/', getAll);
 
-router.get("/", getAll);
+router.get('/:id', getNewById);
 
-router.get("/:id", getNewById);
+router.post('/', AdminAuth, createNew);
 
-router.post("/", createNew);
+router.put('/:id', AdminAuth, updateNew);
 
-router.put("/:id", updateNew);
-
-router.delete("/:id", AdminAuth, deleteNew);
+router.delete('/:id', AdminAuth, deleteNew);
 
 module.exports = router;

@@ -15,7 +15,6 @@ testimonialsRouter.get(
 testimonialsRouter.post(
   '/',
   validateTestimonialFields,
-  AdminAuth,
   TestimonialsController.createTestimonials
 );
 testimonialsRouter.put(
