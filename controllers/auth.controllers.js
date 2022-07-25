@@ -8,16 +8,21 @@ const createUser = async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
     const errors = [validationResult(req)];
+
+    if (errors[0].errors.length) return res.status(422).json(errors);
+
     const emailError = await User.findAll({
       where: {
-        email: email,
-      },
-    });
+        email,
+      }
+    })
 
     // check if email is already in use
-    if (emailError.length !== 0) {
+    if (emailError.length) {
       errors[0].errors.push({
-        email: "email is already in use",
+        msg: "Email is already in use",
+        para: "email",
+        location: "body"
       });
     }
 
@@ -59,12 +64,14 @@ const authMe = async (req, res) => {
     }
 
     const decoded = validateToken(token);
+    if (!decoded) return res.status(401).json({ msg: "Invalid token" })
+
     const { firstName, lastName, email, image, roleId } = await User.findByPk(decoded.userId);
     res.json({
       firstName,
       lastName,
       email,
-      image, 
+      image,
       roleId
     });
   } catch (e) {

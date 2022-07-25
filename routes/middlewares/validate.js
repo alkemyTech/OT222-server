@@ -8,7 +8,7 @@ const validateToken = (token) => {
         return decoded
     } catch (err) {
         console.log(err)
-        return null
+        return false
     }
 }
 
