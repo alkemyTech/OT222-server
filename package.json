@@ -7,7 +7,7 @@
     "dev": "nodemon run ./bin/www",
     "setup": "npm install && sequelize db:migrate",
     "pretest": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
-    "test": "cross-env SECRET=test jest"
+    "test": "cross-env SECRET=test jest --verbose --silent"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
