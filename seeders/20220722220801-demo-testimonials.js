@@ -14,7 +14,7 @@ module.exports = {
     await queryInterface.bulkInsert('testimonials', [
       {
         name: 'Testimony 1',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/100',
         content:
           'Quisque non mi eu felis varius varius. Nam vestibulum arcu eget venenatis ultrices.',
 
@@ -23,7 +23,7 @@ module.exports = {
       },
       {
         name: 'Testimony 2',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/101',
         content:
           'Quisque pellentesque quis erat non consectetur. Donec sed tellus et nisi scelerisque feugiat. ',
 
@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         name: 'Testimony 3',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/102',
         content:
           'Curabitur semper, eros a tristique vulputate, magna urna interdum metus, vitae.',
 
@@ -41,7 +41,7 @@ module.exports = {
       },
       {
         name: 'Testimony 4',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/103',
         content:
           'Nam consectetur dapibus massa. Praesent malesuada nisl et mi faucibus, sit. ',
 
@@ -50,7 +50,7 @@ module.exports = {
       },
       {
         name: 'Testimony 5',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/104',
         content:
           'Proin quis maximus ligula. Integer congue eget mi eget luctus. ',
 
@@ -59,7 +59,7 @@ module.exports = {
       },
       {
         name: 'Testimony 6',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/105',
         content:
           'In molestie varius tristique. Vestibulum elementum leo dignissim, pretium est vestibulum. ',
 
@@ -77,7 +77,7 @@ module.exports = {
       },
       {
         name: ' Testimony8',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/106',
         content:
           'Sed a tortor feugiat, cursus leo tincidunt, scelerisque ligula. Aenea.',
 
@@ -86,7 +86,7 @@ module.exports = {
       },
       {
         name: 'Testimony 9',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/107',
         content:
           'Suspendisse potenti. Praesent lobortis viverra turpis, at dapibus veli.',
 
@@ -95,7 +95,7 @@ module.exports = {
       },
       {
         name: 'Testimony 10',
-        image: 'https://picsum.photos/400/400',
+        image: 'https://picsum.photos/100/108',
         content:
           'Suspendisse congue lectus lacus, sit amet fermentum urna pellentesque non.',
 
@@ -105,7 +105,7 @@ module.exports = {
       {
         name: 'Testimony 11',
         image:
-          'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
+          'https://picsum.photos/100/110',
         content: 'Morbi aliquam metus nec neque tristique. ',
 
         createdAt: new Date(),
@@ -114,7 +114,7 @@ module.exports = {
       {
         name: 'Testimony 12',
         image:
-          'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
+          'https://picsum.photos/100/111',
         content: 'Morbi aliquam metus nec neque tristique. ',
 
         createdAt: new Date(),

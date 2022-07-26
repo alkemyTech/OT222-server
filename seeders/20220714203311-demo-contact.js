@@ -1,44 +1,46 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Contacts', [{
-      name:"Maria",
-      phone:"+57 (1) 888 888 888",
-      email:"email@email.com",
-      message:"mensajito",
+      name: "Maria",
+      phone: "+57 (1) 888 888 888",
+      email: "email@email.com",
+      message: "mensajito",
       createdAt: new Date,
       updatedAt: new Date
     },
     {
-    name:"Jose",
-    phone:"+57 (1) 888 888 888",
-    email:"email@email.com",
-    message:"mensajito",
-    createdAt: new Date,
-    updatedAt: new Date
-    },
-    {
-      name:"Rodrigo",
-      phone:"+57 (1) 888 888 888",
-      email:"email@email.com",
-      message:"mensajito",
+      name: "Jose",
+      phone: "+57 (1) 888 888 888",
+      email: "email@email.com",
+      message: "mensajito",
       createdAt: new Date,
       updatedAt: new Date
     },
     {
-      name:"Ana",
-      phone:"+57 (1) 888 888 888",
-      email:"email@email.com",
-      message:"mensajito",
+      name: "Rodrigo",
+      phone: "+57 (1) 888 888 888",
+      email: "email@email.com",
+      message: "mensajito",
+      createdAt: new Date,
+      updatedAt: new Date
+    },
+    {
+      name: "Ana",
+      phone: "+57 (1) 888 888 888",
+      email: "email@email.com",
+      message: "mensajito",
       createdAt: new Date,
       updatedAt: new Date
     },
 
-], {});
+    ], {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete("Contacts", null, { truncate: true, cascade: true })
+
     /**
      * Add commands to revert seed here.
      *
