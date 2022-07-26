@@ -2,11 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 
-const usersControllers = require('../controllers/users');
+const { getAllUsers, deleteUser } = require('../controllers/users');
 const AdminAuth = require('./middlewares/AdminAuth');
 
 /* GET users listing. */
 
-router.use('/', AdminAuth, usersControllers);
+router.get('/', AdminAuth, getAllUsers);
+router.delete('/:userId', AdminAuth, deleteUser);
 
 module.exports = router;

@@ -131,7 +131,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("Users", null, {})
+    await queryInterface.bulkDelete("Users", null, { truncate: true, cascade: true })
     /**
      * Add commands to revert seed here.
      *
