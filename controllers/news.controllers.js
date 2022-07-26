@@ -70,7 +70,7 @@ const updateNew = async (req, res) => {
 const getAll = (req, res) => {
   Model.Entries.findAll({
     where: { type: "news" },
-    attributes: ["id", "name", "image", "createdAt"],
+    attributes: ["id", "name", "image", "content", "createdAt"],
   })
     .then((entries) => res.send(entries))
     .catch((err) => res.send(err));
