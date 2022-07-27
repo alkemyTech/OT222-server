@@ -4,26 +4,30 @@ const Model = require('../models/index');
 
 router.post('/', async (req, res) => {
   const { name, content, image } = req.body;
+
   await Model.activities
     .create({
       name,
       content,
       image,
     })
-    .then(activities => res.send(activities))
+    .then(activities => res.status(201).json(activities))
     .catch(err => res.status(400).send(err));
 });
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, content, image } = req.body;
-
+  
   const activity = await Model.activities.findOne({ where: { id: id } });
-
+  
   if (activity === null) {
-    res.json({ message: 'Activity not found' });
+    return res.json({ message: 'Activity not found' });
   }
-
+  
+  if (name === undefined && content === undefined && image === undefined) {
+    return res.status(400).json({ message: 'body cant be empty' })
+  }
   try {
     const item = await Model.activities.update(
       {
@@ -44,9 +48,7 @@ router.put('/:id', async (req, res) => {
       image,
     });
   } catch (error) {
-    res.json({
-      error: error.message,
-    });
+    console.log(error)
   }
 });
 
