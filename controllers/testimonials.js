@@ -3,9 +3,7 @@ const { Testimonials } = require('../models');
 const getTestimonials = async (req, res) => {
   try {
     const testimonials = await Testimonials.findAll();
-    res.status(200).json({
-      testimonials,
-    });
+    res.status(200).send(testimonials);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -71,7 +69,7 @@ const deleteTestimonialsById = (req, res) => {
   Testimonials.destroy({
     where: { id },
   })
-    .then(testimonial => res.send({ message: 'Testimony deleted sucessfull' }))
+    .then(testimonial => res.send({ message: 'Testimony deleted sucessfully' }))
     .catch(err => res.send(err));
 };
 
