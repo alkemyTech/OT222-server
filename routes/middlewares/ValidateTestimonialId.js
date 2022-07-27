@@ -8,7 +8,9 @@ const ValidateTestimonialId = async (req, res, next) => {
     });
 
     if (testimonial.length === 0) {
-      return res.send('El testimonio no existe!!');
+      return res
+        .status(400)
+        .send({ message: 'The testimonial id dont exists' });
     } else {
       next();
     }
