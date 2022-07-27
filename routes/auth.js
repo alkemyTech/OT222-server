@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const { createUser, authMe, logIn } = require('../controllers/auth.controllers');
+const { createUser, authMe, logIn, editUser } = require('../controllers/auth.controllers');
 const userValidationSchema = require('../validations/userValidationSchema');
 
 // auth me
@@ -9,6 +9,7 @@ router.get('/me', authMe);
 
 // Create a new user
 router.post('/register', userValidationSchema, createUser);
+router.post('/edit/:userId', editUser)
 
 // login user
 router.post(

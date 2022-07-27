@@ -66,8 +66,9 @@ const authMe = async (req, res) => {
     const decoded = validateToken(token);
     if (!decoded) return res.status(401).json({ msg: "Invalid token" })
 
-    const { firstName, lastName, email, image, roleId } = await User.findByPk(decoded.userId);
+    const { id, firstName, lastName, email, image, roleId } = await User.findByPk(decoded.userId);
     res.json({
+      id,
       firstName,
       lastName,
       email,
@@ -100,4 +101,21 @@ const logIn = (req, res) => {
     })
 }
 
-module.exports = { createUser, authMe, logIn };
+const editUser = async (req, res) => {
+
+  const { userId } = req.params;
+  const { firstName, lastName } = req.body;
+
+  User.update({ firstName, lastName }, { where: { id: userId } })
+    .then(n => {
+      if (n > 0) {
+        res.send({ message: 'User updated' });
+      } else {
+        res.status(400).send({ message: 'User not found' });
+      }
+    })
+    .catch(err => res.status(500).send(err));
+
+}
+
+module.exports = { createUser, authMe, logIn, editUser };
