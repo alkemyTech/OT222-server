@@ -19,7 +19,7 @@ router.post('/',AdminAuth, validateContactsFields,async (req, res) => {
        email,
        message,
     })
-    res.status(200).json({contact})
+    res.status(201).json({contact})
     
   } catch (error) {
     res.status(400).json({error: error.message})

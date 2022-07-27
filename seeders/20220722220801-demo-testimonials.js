@@ -13,8 +13,8 @@ module.exports = {
      */
     await queryInterface.bulkInsert('testimonials', [
       {
-        name: 'Testimony 1',
-        image: 'https://picsum.photos/400/400',
+        name: 'Luciano',
+        image: 'luciano.jpg',
         content:
           'Quisque non mi eu felis varius varius. Nam vestibulum arcu eget venenatis ultrices.',
 
@@ -22,8 +22,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 2',
-        image: 'https://picsum.photos/400/400',
+        name: 'Maria Perez',
+        image: 'maria.jpg',
         content:
           'Quisque pellentesque quis erat non consectetur. Donec sed tellus et nisi scelerisque feugiat. ',
 
@@ -31,8 +31,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 3',
-        image: 'https://picsum.photos/400/400',
+        name: 'Noelia Perez',
+        image: 'noelia.jpg',
         content:
           'Curabitur semper, eros a tristique vulputate, magna urna interdum metus, vitae.',
 
@@ -40,8 +40,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 4',
-        image: 'https://picsum.photos/400/400',
+        name: 'Alvaro Perez',
+        image: 'jose.jpg',
         content:
           'Nam consectetur dapibus massa. Praesent malesuada nisl et mi faucibus, sit. ',
 
@@ -49,8 +49,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 5',
-        image: 'https://picsum.photos/400/400',
+        name: 'Magdalena Perez',
+        image: 'maria.jpg',
         content:
           'Proin quis maximus ligula. Integer congue eget mi eget luctus. ',
 
@@ -58,8 +58,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 6',
-        image: 'https://picsum.photos/400/400',
+        name: 'Jeronimo Perez',
+        image: 'luciano.jpg',
         content:
           'In molestie varius tristique. Vestibulum elementum leo dignissim, pretium est vestibulum. ',
 
@@ -67,17 +67,16 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 7',
-        image:
-          'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
+        name: 'Lucia Perez',
+        image: "noelia.jpg",
         content: 'Morbi aliquam metus nec neque tristique, ',
 
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: ' Testimony8',
-        image: 'https://picsum.photos/400/400',
+        name: ' Jose Perez',
+        image: 'jose.jpg',
         content:
           'Sed a tortor feugiat, cursus leo tincidunt, scelerisque ligula. Aenea.',
 
@@ -85,8 +84,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 9',
-        image: 'https://picsum.photos/400/400',
+        name: 'Milagros Perez',
+        image: 'maria.jpg',
         content:
           'Suspendisse potenti. Praesent lobortis viverra turpis, at dapibus veli.',
 
@@ -94,8 +93,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 10',
-        image: 'https://picsum.photos/400/400',
+        name: 'Juan Perez',
+        image: 'luciano.jpg',
         content:
           'Suspendisse congue lectus lacus, sit amet fermentum urna pellentesque non.',
 
@@ -103,18 +102,18 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 11',
+        name: 'Pedro Perez',
         image:
-          'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
+          'jose.jpg',
         content: 'Morbi aliquam metus nec neque tristique. ',
 
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Testimony 12',
+        name: 'Mauricio Perez',
         image:
-          'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
+          'jose.jpg',
         content: 'Morbi aliquam metus nec neque tristique. ',
 
         createdAt: new Date(),
