@@ -10,6 +10,21 @@ const getAllUsers = async (req, res) => {
     .catch(err => res.status(400).send(err));
 }
 
+const editUser = async (req, res) => {
+  const { userId } = req.params;
+  const { firstName, lastName } = req.body;
+  User.update({ firstName, lastName }, { where: { id: userId } })
+    .then(n => {
+      if (n > 0) {
+        res.send({ message: 'User updated' });
+      } else {
+        res.status(400).send({ message: 'User not found' });
+      }
+    })
+    .catch(err => res.status(500).send(err));
+
+}
+
 const deleteUser = async (req, res) => {
   User.destroy({ where: { id: req.params.userId } })
     .then(n => {
@@ -21,5 +36,6 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
   getAllUsers,
-  deleteUser
+  deleteUser,
+  editUser
 };
