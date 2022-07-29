@@ -28,3 +28,28 @@ module.exports = (sequelize, DataTypes) => {
   );
   return User;
 };
+
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    User:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: integer
+ *        firstName:
+ *          type: string
+ *        lastName:
+ *          type: string
+ *        email:
+ *          type: string
+ *        image:
+ *          type: string
+ *        password:
+ *          type: string
+ *        roleId:
+ *          type: integer
+ *        deletedAt:
+ *          type: string 
+ */
